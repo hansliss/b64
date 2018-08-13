@@ -8,9 +8,9 @@ AC_DEFINE_UNQUOTED(VERSION, "$VERSION")
 AC_SUBST(PRODUCT)
 AC_SUBST(VERSION)
 
-LDFLAGS="$LDFLAGS -L/usr/local/lib -L/opt/iplogin2/lib"
-CFLAGS="$CFLAGS -I/usr/local/include -I/opt/iplogin2/include"
-CPPFLAGS="$CPPFLAGS -I/usr/local/include -I/opt/iplogin2/include"
+LDFLAGS="$LDFLAGS -L/usr/local/lib"
+CFLAGS="$CFLAGS -I/usr/local/include"
+CPPFLAGS="$CPPFLAGS -I/usr/local/include"
 
 dnl Checks for programs.
 AC_PROG_CC
@@ -20,12 +20,9 @@ fi
 AC_PROG_INSTALL
 AC_PROG_LN_S
 
-dnl Checks for libraries.
-AC_CHECK_FUNC(crypt, ,AC_CHECK_LIB(crypt, crypt, ,AC_MSG_ERROR([can't find crypt()])))
-
 dnl Checks for header files.
 AC_HEADER_STDC
-AC_CHECK_HEADERS(limits.h unistd.h netinet/in.h netdb.h arpa/inet.h)
+AC_CHECK_HEADERS(unistd.h)
 
 dnl Checks for typedefs, structures, and compiler characteristics.
 AC_C_CONST
